@@ -3,8 +3,15 @@ require('dotenv').config();
 
 const twitch = require('twitch-js');
 
-console.log('=== Creating client ===');
-const client = new twitch.client({
+// Enable debugging via environment, but disable always
+// in production, regardless of this value.
+// NOTE: Having debug enabled makes for NOISY output
+const DEBUG = true;
+
+const config = {
+  options: {
+    debug: DEBUG && process.env.NODE_ENV !== 'production'
+  },
   identity: {
     username: process.env.TWITCH_USER,
     password: 'oauth:' + process.env.OAUTH_TOKEN
@@ -14,7 +21,10 @@ const client = new twitch.client({
     '#pizza_suplex',
     '#polygon'
   ]
-});
+};
+
+console.log('=== Creating client ===');
+const client = new twitch.client(config);
 
 // Set up events
 console.log('=== Setting up events ===');
@@ -26,6 +36,7 @@ const genericEvents = [
   'connected',
   'logon',
   'ping',
+  'pong',
   'reconnect'
 ];
 genericEvents.forEach(event => {
@@ -38,7 +49,6 @@ genericEvents.forEach(event => {
 client.on('disconnected', (reason) => {
   console.log('=== Client disconnected ===');
   console.log('Reason: ', reason);
-  process.exit();
 });
 
 // Watch for chats and whispers
