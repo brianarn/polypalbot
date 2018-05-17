@@ -1,10 +1,10 @@
 // Get some environment going
 require('dotenv').config();
 
-const tmi = require('tmi.js');
+const twitch = require('twitch-js');
 
 console.log('=== Creating client ===');
-const client = new tmi.client({
+const client = new twitch.client({
   identity: {
     username: process.env.TWITCH_USER,
     password: 'oauth:' + process.env.OAUTH_TOKEN
