@@ -7,10 +7,19 @@
     "dotenv": "5.0.1",
     "twitch-js": "2.0.0-alpha.20"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ghooks": "2.0.4",
+    "tap": "12.0.1"
+  },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/**/*.js"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   },
   "repository": {
     "type": "git",
