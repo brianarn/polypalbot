@@ -1,5 +1,7 @@
 # polypalbot
 
+[![Build Status](https://travis-ci.org/brianarn/polypalbot.svg?branch=master)](https://travis-ci.org/brianarn/polypalbot)
+
 A Node.js-based Twitch chat bot to provide interesting data about some fun Polygon streams
 
 ## Plans
