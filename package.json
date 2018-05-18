@@ -1,14 +1,19 @@
 {
   "name": "polypalbot",
   "version": "0.0.1",
-  "description": "A Node.js-based Twitch chat bot to provide interesting data about some fun Polygon streams",
+  "description":
+    "A Node.js-based Twitch chat bot to provide interesting data about some fun Polygon streams",
   "main": "index.js",
   "dependencies": {
     "dotenv": "5.0.1",
     "twitch-js": "2.0.0-alpha.20"
   },
   "devDependencies": {
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-prettier": "2.6.0",
     "husky": "^1.0.0-rc.6",
+    "lint-staged": "7.1.0",
+    "prettier": "1.12.1",
     "tap": "12.0.1"
   },
   "scripts": {
@@ -17,18 +22,19 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
+  },
+  "lint-staged": {
+    "*.js": ["eslint"],
+    "*.{json,css,md}": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brianarn/polypalbot.git"
   },
-  "keywords": [
-    "twitch",
-    "polygon"
-  ],
+  "keywords": ["twitch", "polygon"],
   "author": "Brian Sinclair",
   "license": "MIT",
   "bugs": {
