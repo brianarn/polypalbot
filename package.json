@@ -8,15 +8,15 @@
     "twitch-js": "2.0.0-alpha.20"
   },
   "devDependencies": {
-    "ghooks": "2.0.4",
+    "husky": "^1.0.0-rc.6",
     "tap": "12.0.1"
   },
   "scripts": {
     "start": "node index.js",
     "test": "tap test/**/*.js"
   },
-  "config": {
-    "ghooks": {
+  "husky": {
+    "hooks": {
       "pre-commit": "npm test",
       "pre-push": "npm test"
     }
