@@ -29,7 +29,7 @@
     }
   },
   "lint-staged": {
-    "*.js": ["eslint"],
+    "*.js": ["prettier --write", "eslint", "git add"],
     "*.{json,css,md}": ["prettier --write", "git add"]
   },
   "repository": {
