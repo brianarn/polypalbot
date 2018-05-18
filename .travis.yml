@@ -3,9 +3,13 @@ node_js:
   - "10.1.0"
 env:
   - TEST_DIR=server
-script:
 before_install:
   - npm install -g npm@6.0.1
+install:
+  - cd $TEST_DIR
+  - npm install
+script:
+  - npm test
 cache:
   directories:
     - "server/node_modules"
