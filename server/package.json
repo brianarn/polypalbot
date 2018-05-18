@@ -6,9 +6,11 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "5.0.1",
+    "loglevel": "1.6.1",
     "twitch-js": "2.0.0-alpha.20"
   },
   "devDependencies": {
+    "eslint": "4.19.1",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-prettier": "2.6.0",
     "husky": "^1.0.0-rc.6",
